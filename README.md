@@ -1,29 +1,52 @@
-# Create T3 App
+# Landing Page Template
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+A ready-to-ship landing page template for startup products. Edit one config file, deploy, and start collecting waitlist signups with analytics from day one.
 
-## What's next? How do I make an app with this?
+## What's included
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- **Waitlist collection** via [Loops.so](https://loops.so) — email signup with tRPC server mutation
+- **Analytics** via [PostHog](https://posthog.com) — reverse-proxied for ad-blocker resilience
+- **SEO** — JSON-LD structured data, dynamic keyword pages, OpenGraph/Twitter meta
+- **Sections** — Hero, features, reviews, FAQ, CTA — all driven from a single config file
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Stack
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+| Layer | Tech |
+|-------|------|
+| Framework | [Next.js 15](https://nextjs.org) (App Router, Turbopack) |
+| Language | TypeScript 5.8 |
+| Styling | [Tailwind CSS 4](https://tailwindcss.com) (OKLCH color system) |
+| UI | [shadcn/ui](https://ui.shadcn.com) (new-york style) |
+| API | [tRPC 11](https://trpc.io) |
+| Runtime | React 19 |
+| Analytics | [PostHog](https://posthog.com) |
+| Email/Waitlist | [Loops.so](https://loops.so) |
 
-## Learn More
+Built on the [T3 Stack](https://create.t3.gg/).
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+## Getting started
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+```bash
+# Install dependencies
+bun install
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+# Set up environment variables
+cp .env.example .env
+# Fill in LOOPS_API_KEY, LOOPS_WAITLIST_ID, NEXT_PUBLIC_POSTHOG_KEY, etc.
 
-## How do I deploy this?
+# Start dev server
+bun run dev
+```
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+## Customization
+
+Edit `src/config/site.ts` — this is the single source of truth for all product content (name, tagline, features, reviews, FAQ, SEO pages). Every component reads from this file.
+
+## Scripts
+
+```bash
+bun run dev          # Start dev server with Turbopack
+bun run build        # Production build
+bun run check        # Lint + typecheck combined
+bun run format:write # Format all files with Prettier
+```
