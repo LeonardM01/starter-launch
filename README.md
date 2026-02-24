@@ -42,6 +42,24 @@ bun run dev
 
 Edit `src/config/site.ts` — this is the single source of truth for all product content (name, tagline, features, reviews, FAQ, SEO pages). Every component reads from this file.
 
+## AI-Assisted Setup
+
+This template is designed to work with AI coding assistants. Three interactive workflows help you customize everything without manually editing config files.
+
+| Workflow | What it does |
+|----------|-------------|
+| **Bootstrap** | Full setup — product identity, features, design system, social proof, FAQ, SEO strategy, env vars |
+| **Add SEO Page** | Generate a new keyword-optimized page targeting specific search terms |
+| **Design System** | Change colors (OKLCH palette), fonts, and visual style |
+
+### How to invoke
+
+- **Claude Code:** Run `/bootstrap`, `/add-seo-page`, or `/design-system` — these are native skills defined in `.claude/skills/`
+- **OpenAI Codex:** Ask naturally (e.g., "bootstrap this landing page" or "add an SEO page") — `agents.md` provides project context and workflow instructions
+- **Other AI tools:** Reference or paste the workflow instructions from `.claude/skills/*.md` into your tool's context
+
+> **Note:** `CLAUDE.md` and `agents.md` provide project context to Claude Code and OpenAI Codex respectively. If you update one, keep the other in sync.
+
 ## Scripts
 
 ```bash
